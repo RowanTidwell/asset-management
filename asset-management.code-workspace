@@ -1,0 +1,65 @@
+{
+    "folders": [
+        {
+            "path": ".",
+        },
+    ],
+    "settings": {
+        // Editor & formatting
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.python",
+        "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["backend/tests"],
+
+        // Make the backend package importable in the editor and terminal
+        "python.analysis.extraPaths": [
+            "${workspaceFolder}/backend",
+            "${workspaceFolder/backend/src"
+        ],
+        "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:poetry",
+            "packageManager": "ms-python.python:poetry"
+        }
+    ]
+
+        // Hide common noisy files
+        "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/node_modules": true,
+            "**/__pycache__": true,
+            "**/.pytest_cache": true,
+            ".venv": true,
+            "backend/.venv": true,
+            "backend/requirements*.txt": true,
+            "**/dev.db": true,
+            "**/*.lock": true,
+            "**/*.gitattributes": true,
+            "**/*.gitignore": true,
+        },
+
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/.venv": true,
+            "**/.pytest_cache": true,
+            "**/*.code-workspace": true,
+            "backend/requirements*.txt": true,
+        },
+
+        "ruff.lint.ignore": ["UP045"],
+        "ruff.lineLength": 100,
+    },
+
+    // Recommended extensions for contributors
+    "extensions": {
+        "recommendations": [
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-azuretools.vscode-docker",
+            "eamodio.gitlens",
+        ],
+    },
+}

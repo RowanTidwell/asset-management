@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+    db:
+        image: postgres:15
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: assetuser
+            POSTGRES_PASSWORD: assetpass
+            POSTGRES_DB: assetdb
+        volumes:
+            - db_data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+
+    backend:
+        build: ./backend/src/asset_management_server
+        restart: unless-stopped
+        depends_on:
+            - db
+        environment:
+            DATABASE_URL: postgresql://assetuser:assetpass@db:5432/assetdb
+            JWT_SECRET: change_me
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./backend/src/asset_management_server:/app
+
+volumes:
+    db_data:

@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "asset-management-server"
+version = "0.1.0"
+description = "Lightweight production-tracking backend and tools"
+authors = ["Rowan Tidwell <mrtidwell@msn.com>"]
+license = "MIT"
+
+packages = [
+    { include = "asset_management_server", from = "src" }
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.poetry.dependencies]
+python = "^3.14"
+alembic = "1.19.2"
+anyio = "4.15.1"
+bcrypt = "5.0.0"
+certifi = "2026.7.22"
+cffi = "2.1.1"
+click = "8.5.0"
+colorama = "0.4.6"
+cryptography = "50.0.1"
+dnspython = "2.8.0"
+email-validator = "2.3.0"
+fastapi = "0.141.1"
+h11 = "0.16.0"
+httpcore = "1.0.9"
+httpx = "0.28.1"
+idna = "3.19"
+Mako = "1.4.1"
+MarkupSafe = "3.0.3"
+packaging = "26.3"
+passlib = "1.7.4"
+psycopg2-binary = "2.9.12"
+pydantic = "2.13.5"
+pydantic-core = "2.46.5"
+Pygments = "2.21.0"
+python-dotenv = "1.2.3"
+python-jose = "3.5.0"
+python-multipart = "0.0.32"
+PyYAML = "6.0.3"
+SQLAlchemy = "2.0.52"
+starlette = "1.6.0"
+tomli = "2.4.1"
+typing-inspection = "0.4.4"
+typing_extensions = "4.16.0"
+uvicorn = "0.52.4"
+watchfiles = "1.2.0"
+websockets = "17.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "9.1.1"
+pytest-asyncio = "1.4.0"
+black = "24.10.0"
+isort = "5.13.0"
+pre-commit = "3.3.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
